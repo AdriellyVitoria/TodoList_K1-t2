@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class InteracaoComMenu {
     public static void criarTarefa(){
         Scanner scanner = new Scanner(System.in);
-        //Colocar um print de boas vi
         System.out.println("Nome da tarefa: ");
         String nomeTarefa = scanner.nextLine();
 
@@ -27,37 +26,36 @@ public class InteracaoComMenu {
 
         Tarefa criarTarefa = new Tarefa(nomeTarefa, descricaoTarefa, dataDeTermino,
                 prioridadeTarefa, categoriaTarefa, status);
-        Listas.addTarefa(criarTarefa);
+        ListarTarefa.addTarefa(criarTarefa);
     }
 
     public static void menuListarTarefas(){
         int opcao = EntradaEValidacao.recebeEValidacaoListarTarefas();
         switch (opcao) {
             case 1:
-                Listas.listarPorCategoria();
+                ListarTarefa.listarPorCategoria();
                 break;
             case 2:
-                Listas.listarPorPrioridade();
+                ListarTarefa.listarPorPrioridade();
                 break;
             case 3:
-                Listas.listarPorStatus();
+                ListarTarefa.listarPorStatus();
                 break;
             case 4:
-                Listas.listarDetalherDaTarefa();
+                ListarTarefa.listarDetalherDaTarefa();
                 break;
             default:
                 System.out.println("Opção inválida. Tente novamente.");
         }
 
     }
-    public static void deletarTarefa(){
-        Listas.listarTarefaPorNomeParaApagar();
-    }
-
-    public static void atualizarTarefa(){
-        Listas.atualizarTarefa();
-
-    }
+//    public static void deletarTarefa(){
+//        ListarTarefa.listarTarefaPorNomeParaApagar();
+//    }
+//
+//    public static void atualizarTarefa(){
+//        ListarTarefa.atualizarTarefa();
+//    }
 
 }
 

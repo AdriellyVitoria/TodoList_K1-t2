@@ -40,4 +40,16 @@ public class Tarefa {
     public int getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "ID: " + id
+        + "\nNome da tarefa: " + nome
+        + "\nDescrição: " + descricao
+        + "\nData de Término: " + data
+        + "\nPrioridade: " + prioridade
+        + "\nCategoria: " + categoria
+        + "\nStatus: " + status
+        + "\n---------------";
+    }
 }
