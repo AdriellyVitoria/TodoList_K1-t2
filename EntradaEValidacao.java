@@ -68,4 +68,14 @@ public class EntradaEValidacao {
             return validaEntradaDeInteiro(pergunta, opcaoInicial, opcaoFinal);
         }
     }
+
+    public static int recebeId(String pergunta){
+        try {
+            System.out.println(pergunta);
+            return Integer.parseInt(scanner.nextLine());
+        } catch (Exception e){
+            System.out.println("Por favor digite um ID válido!!\n");
+            return recebeId(pergunta);
+        }
+    }
 }

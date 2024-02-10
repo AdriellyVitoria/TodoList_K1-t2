@@ -49,13 +49,13 @@ public class InteracaoComMenu {
         }
 
     }
-//    public static void deletarTarefa(){
-//        ListarTarefa.listarTarefaPorNomeParaApagar();
-//    }
-//
-//    public static void atualizarTarefa(){
-//        ListarTarefa.atualizarTarefa();
-//    }
+    public static void deletarTarefa(){
+        ExluirTarefa.listarTarefaPorNomeParaApagar(ListarTarefa.getTarefas());
+    }
+
+    public static void atualizarTarefa(){
+        AtualizarTarefa.atualizarTarefa();
+    }
 
 }
 

@@ -3,6 +3,9 @@ import java.util.Scanner;
 
 public class ListarTarefa {
     private static ArrayList<Tarefa> tarefas = new ArrayList<>();
+    public static ArrayList<Tarefa> getTarefas() {
+        return tarefas;
+    }
     public static void addTarefa(Tarefa tarefa) {
         tarefas.add(tarefa);
     }
