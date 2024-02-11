@@ -40,6 +40,9 @@ public class InteracaoComMenu {
                 case 3:
                     ListarTarefa.listarPorStatus();
                     break;
+                case 5:
+                    ListarTarefa.consultaNumeroDeAtividade();
+                    break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
             }

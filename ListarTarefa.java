@@ -36,15 +36,21 @@ public class ListarTarefa {
     public static void listarPorStatus(){
         int opcao = EntradaEValidacao.recebeEvalidacaoStatus();
         String opcaoEmString = StatusUtilitarios.convertendoStatusParaString(opcao);
-        imprimirFiltradoPorStatus(opcaoEmString);
+        imprimirFiltradoPorStatus(opcaoEmString, true);
     }
 
-    public static void imprimirFiltradoPorStatus(String filtro){
+    public static void imprimirNumeroDeAtividades(String filtro) {
+        imprimirFiltradoPorStatus(filtro, false);
+    }
+
+    public static void imprimirFiltradoPorStatus(String filtro, boolean imprimirComlista){
         int NumeroDeAtividade = 0;
         for (Tarefa tarefa : tarefas) {
             if (tarefa.getStatus().equals(filtro)) {
                 NumeroDeAtividade++;
-                System.out.println(tarefa);
+                if(imprimirComlista){
+                    System.out.println(tarefa);
+                }
             }
         }
         System.out.println(filtro+ ": " + NumeroDeAtividade + " Atividade(s)");
@@ -56,5 +62,11 @@ public class ListarTarefa {
                 System.out.println(tarefa);
             }
         }
+    }
+
+    public static void consultaNumeroDeAtividade(){
+        imprimirNumeroDeAtividades("Em andamento");
+        imprimirNumeroDeAtividades("A fazer");
+        imprimirNumeroDeAtividades("Concluido");
     }
 }

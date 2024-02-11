@@ -47,7 +47,8 @@ public class EntradaEValidacao {
                 2 - Por Prioridade
                 3 - Por Status
                 4 - Todas
-                5 - Sair""", 1, 5);
+                5 - Consultar número de tarefas
+                6 - Sair""", 1, 6);
     }
 
     public static int validaEntradaDeInteiro(String pergunta, int opcaoInicial, int opcaoFinal){
