@@ -4,8 +4,12 @@ public class ListarTarefa {
     public static ArrayList<Tarefa> getTarefas() {
         return tarefas;
     }
-    public static void addTarefa(Tarefa tarefa) {
-        tarefas.add(tarefa);
+    public static void addTarefaEOrdenacao(Tarefa tarefa) {
+        for(int i = 1; i <= tarefas.size(); i++){
+            if (tarefas.get(i).getPrioridade() > tarefa.getPrioridade()) {
+                tarefas.add(i, tarefa);
+            }
+        }
     }
 
     public static void listarDetalherDaTarefa(){
@@ -26,16 +30,6 @@ public class ListarTarefa {
         int opcao = EntradaEValidacao.recebeEvalidacaoCategoria();
         String opcaoEmString = StatusUtilitarios.convertendoCategoriParaString(opcao);
         imprimirFiltradoPorCategoria(opcaoEmString);
-    }
-
-    public static void listarPorPrioridade(){
-        for (int i = 1; i <= 5; i++) {
-            for (Tarefa tarefa : tarefas) {
-                if (tarefa.getPrioridade() == i) {
-                    System.out.println(tarefa);
-                }
-            }
-        }
     }
 
     public static void listarPorStatus(){

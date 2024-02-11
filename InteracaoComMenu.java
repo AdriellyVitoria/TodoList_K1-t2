@@ -23,7 +23,8 @@ public class InteracaoComMenu {
 
         Tarefa criarTarefa = new Tarefa(nomeTarefa, descricaoTarefa, dataDeTermino,
                 prioridadeTarefa, categoriaTarefa, status);
-        ListarTarefa.addTarefa(criarTarefa);
+
+        ListarTarefa.addTarefaEOrdenacao(criarTarefa);
         System.out.println("Nova tarefa adicionada com sucesso");
     }
 
@@ -34,14 +35,11 @@ public class InteracaoComMenu {
                 case 1:
                     ListarTarefa.listarPorCategoria();
                     break;
-                case 2:
-                    ListarTarefa.listarPorPrioridade();
+                case 2, 4:
+                    ListarTarefa.listarDetalherDaTarefa();
                     break;
                 case 3:
                     ListarTarefa.listarPorStatus();
-                    break;
-                case 4:
-                    ListarTarefa.listarDetalherDaTarefa();
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
