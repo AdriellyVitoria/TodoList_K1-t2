@@ -16,10 +16,7 @@ public class InteracaoComMenu {
 
         int dia = EntradaEValidacao.recebeEValidacaoDia();
         int mes = EntradaEValidacao.recebeEValidacaoMes();
-
-        System.out.println("Digete o ano de termino (AAAA): "); //pega o ano atual ou menor
-        int ano = Integer.parseInt(scanner.nextLine());
-        String dataDeTermino = dia + "/" + mes + "/" + ano;
+        String dataDeTermino = dia + "/" + mes;
 
         int statusTarefa = EntradaEValidacao.recebeEvalidacaoStatus();
         String status = StatusUtilitarios.convertendoStatusParaString(statusTarefa);
@@ -27,34 +24,41 @@ public class InteracaoComMenu {
         Tarefa criarTarefa = new Tarefa(nomeTarefa, descricaoTarefa, dataDeTermino,
                 prioridadeTarefa, categoriaTarefa, status);
         ListarTarefa.addTarefa(criarTarefa);
+        System.out.println("Nova tarefa adicionada com sucesso");
     }
 
     public static void menuListarTarefas(){
-        int opcao = EntradaEValidacao.recebeEValidacaoListarTarefas();
-        switch (opcao) {
-            case 1:
-                ListarTarefa.listarPorCategoria();
-                break;
-            case 2:
-                ListarTarefa.listarPorPrioridade();
-                break;
-            case 3:
-                ListarTarefa.listarPorStatus();
-                break;
-            case 4:
-                ListarTarefa.listarDetalherDaTarefa();
-                break;
-            default:
-                System.out.println("Opção inválida. Tente novamente.");
+        if (ListarTarefa.verificaListaVazia()) {
+            int opcao = EntradaEValidacao.recebeEValidacaoListarTarefas();
+            switch (opcao) {
+                case 1:
+                    ListarTarefa.listarPorCategoria();
+                    break;
+                case 2:
+                    ListarTarefa.listarPorPrioridade();
+                    break;
+                case 3:
+                    ListarTarefa.listarPorStatus();
+                    break;
+                case 4:
+                    ListarTarefa.listarDetalherDaTarefa();
+                    break;
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+            }
         }
-
     }
+
     public static void deletarTarefa(){
-        ExluirTarefa.listarTarefaPorNomeParaApagar(ListarTarefa.getTarefas());
+        if (ListarTarefa.verificaListaVazia()){
+            ExluirTarefa.listarTarefaPorNomeParaApagar(ListarTarefa.getTarefas());
+        }
     }
 
     public static void atualizarTarefa(){
-        AtualizarTarefa.atualizarTarefa();
+        if (ListarTarefa.verificaListaVazia()){
+            AtualizarTarefa.atualizarTarefa();
+        }
     }
 
 }

@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
-
 public class ListarTarefa {
     private static ArrayList<Tarefa> tarefas = new ArrayList<>();
     public static ArrayList<Tarefa> getTarefas() {
@@ -27,18 +25,14 @@ public class ListarTarefa {
     public static void listarPorCategoria(){
         int opcao = EntradaEValidacao.recebeEvalidacaoCategoria();
         String opcaoEmString = StatusUtilitarios.convertendoCategoriParaString(opcao);
-        if (verificaListaVazia()){
-            imprimirFiltradoPorCategoria(opcaoEmString);
-        }
+        imprimirFiltradoPorCategoria(opcaoEmString);
     }
 
     public static void listarPorPrioridade(){
-        if (verificaListaVazia()){
-            for (int i = 1; i <= 5; i++) {
-                for (Tarefa tarefa : tarefas) {
-                    if (tarefa.getPrioridade() == i) {
-                        System.out.println(tarefa);
-                    }
+        for (int i = 1; i <= 5; i++) {
+            for (Tarefa tarefa : tarefas) {
+                if (tarefa.getPrioridade() == i) {
+                    System.out.println(tarefa);
                 }
             }
         }
@@ -47,10 +41,7 @@ public class ListarTarefa {
     public static void listarPorStatus(){
         int opcao = EntradaEValidacao.recebeEvalidacaoStatus();
         String opcaoEmString = StatusUtilitarios.convertendoStatusParaString(opcao);
-
-        if(verificaListaVazia()){
-            imprimirFiltradoPorStatus(opcaoEmString);
-        }
+        imprimirFiltradoPorStatus(opcaoEmString);
     }
 
     public static void imprimirFiltradoPorStatus(String filtro){
