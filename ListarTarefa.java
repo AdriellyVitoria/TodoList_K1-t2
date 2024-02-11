@@ -1,15 +1,16 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+
 public class ListarTarefa {
     private static ArrayList<Tarefa> tarefas = new ArrayList<>();
     public static ArrayList<Tarefa> getTarefas() {
         return tarefas;
     }
     public static void addTarefaEOrdenacao(Tarefa tarefa) {
-        for(int i = 1; i <= tarefas.size(); i++){
-            if (tarefas.get(i).getPrioridade() > tarefa.getPrioridade()) {
-                tarefas.add(i, tarefa);
-            }
-        }
+        tarefas.add(tarefa);
+        Collections.sort(tarefas);
+        System.out.println("tarefa adicionada com sucesso");
     }
 
     public static void listarDetalherDaTarefa(){
@@ -39,11 +40,14 @@ public class ListarTarefa {
     }
 
     public static void imprimirFiltradoPorStatus(String filtro){
+        int NumeroDeAtividade = 0;
         for (Tarefa tarefa : tarefas) {
             if (tarefa.getStatus().equals(filtro)) {
+                NumeroDeAtividade++;
                 System.out.println(tarefa);
             }
         }
+        System.out.println(filtro+ ": " + NumeroDeAtividade + " Atividade(s)");
     }
 
     public static void imprimirFiltradoPorCategoria(String filtro){

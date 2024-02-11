@@ -25,7 +25,6 @@ public class InteracaoComMenu {
                 prioridadeTarefa, categoriaTarefa, status);
 
         ListarTarefa.addTarefaEOrdenacao(criarTarefa);
-        System.out.println("Nova tarefa adicionada com sucesso");
     }
 
     public static void menuListarTarefas(){

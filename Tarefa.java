@@ -1,4 +1,4 @@
-public class Tarefa {
+public class Tarefa implements Comparable<Tarefa> {
     private String nome;
     private String descricao;
     private String data;
@@ -51,5 +51,10 @@ public class Tarefa {
         + "\nCategoria: " + categoria
         + "\nStatus: " + status
         + "\n---------------";
+    }
+
+    @Override
+    public int compareTo(Tarefa o) {
+        return Integer.compare(prioridade, o.getPrioridade());
     }
 }
