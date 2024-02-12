@@ -57,7 +57,7 @@ public class InteracaoComMenu {
 
     public static void atualizarTarefa(){
         if (ListarTarefa.verificaListaVazia()){
-            AtualizarTarefa.atualizarTarefa();
+            AtualizarTarefa.buscarAtualizarTarefa(ListarTarefa.getTarefas());
         }
     }
 

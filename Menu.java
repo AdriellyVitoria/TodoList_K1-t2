@@ -20,7 +20,7 @@ public class Menu {
         if (opcao != 5) {
             menuInicial();
         } else {
-            System.out.println("Até mais");
+            System.out.println("Saindo do programa... Até mais");
         }
     }
 }

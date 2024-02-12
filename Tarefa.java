@@ -57,4 +57,28 @@ public class Tarefa implements Comparable<Tarefa> {
     public int compareTo(Tarefa o) {
         return Integer.compare(prioridade, o.getPrioridade());
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public void setPrioridade(int prioridade) {
+        this.prioridade = prioridade;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

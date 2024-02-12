@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class EntradaEValidacao {
@@ -51,6 +52,17 @@ public class EntradaEValidacao {
                 6 - Sair""", 1, 6);
     }
 
+    public static int recebeEValidacaoEditarTarefas(){
+        return validaEntradaDeInteiro("""
+        Qual item deseja atualizar:
+        1 - Nome
+        2 - Descrição
+        3 - prioridade
+        4 - Categoria
+        5 - Data
+        6 - Status""", 1, 6);
+    }
+
     public static int validaEntradaDeInteiro(String pergunta, int opcaoInicial, int opcaoFinal){
         try {
             System.out.println(pergunta);
@@ -73,5 +85,18 @@ public class EntradaEValidacao {
             System.out.println("Por favor digite um ID válido!!\n");
             return recebeId(pergunta);
         }
+    }
+
+    public static Integer buscaPosicaoDaTarefa(ArrayList<Tarefa> tarefas){
+        for (Tarefa tarefa : tarefas) {
+            System.out.println("ID: " + tarefa.getId() + ", Nome da tarefa: " + tarefa.getNome());
+        }
+        int idParaApagar = EntradaEValidacao.recebeId("Digite o ID da tarefa que deseja editar: ");
+        for (int i = 0; i < tarefas.size(); i++){
+            if (tarefas.get(i).getId() == idParaApagar){
+                return i;
+            }
+        }
+        return null;
     }
 }
