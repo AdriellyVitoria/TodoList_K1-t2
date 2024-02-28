@@ -1,18 +1,30 @@
-public class Menu {
+package views;
+
+import utils.Inputs;
+
+public class MenuView {
+    private Inputs inputs;
+    private TarefaView tarefaView;
+
+    public MenuView(){
+        tarefaView = new TarefaView();
+        inputs = new Inputs();
+    }
+
     public void menuInicial() throws InterruptedException {
-        int opcao = EntradaEValidacao.recebeEValidaOpcaoDoMenu();
+        Integer opcao = inputs.menuPrincipal();
         switch (opcao) {
             case 1:
-                InteracaoComMenu.criarTarefa();
+                tarefaView.criarTarefa();
                 break;
             case 2:
-                InteracaoComMenu.deletarTarefa();
+                tarefaView.excluirTarefa();
                 break;
             case 3:
-                InteracaoComMenu.atualizarTarefa();
+                tarefaView.atualizarTarefa();
                 break;
             case 4:
-                InteracaoComMenu.menuListarTarefas();
+                tarefaView.listarTarefas();
                 break;
             default:
                 break;

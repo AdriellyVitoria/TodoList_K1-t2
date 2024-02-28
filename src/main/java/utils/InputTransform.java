@@ -1,13 +1,15 @@
-public class StatusUtilitarios {
-    public static String convertendoStatusParaString(int statusTarefa){
+package utils;
+
+public class InputTransform {
+    public String statusToString(int statusTarefa){
         String status = null;
         switch (statusTarefa){
             case 0:
-               status = "Em andamento";
-               break;
+                status = "Em andamento";
+                break;
             case 1:
-               status = "A fazer";
-               break;
+                status = "A fazer";
+                break;
             case 2:
                 status = "Concluido";
                 break;
@@ -15,7 +17,7 @@ public class StatusUtilitarios {
         return status;
     }
 
-    public static String convertendoCategoriParaString(int categoriaTarefa){
+    public String categoriToString(int categoriaTarefa){
         String categoria = null;
         switch (categoriaTarefa){
             case 0:
@@ -29,8 +31,5 @@ public class StatusUtilitarios {
                 break;
         }
         return categoria;
-        }
     }
-
-
-
+}
