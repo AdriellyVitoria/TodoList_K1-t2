@@ -1,0 +1,10 @@
+views/MenuView.class
+views/TarefaView.class
+Main.class
+services/TarefaService.class
+views/ListagemView.class
+data/Database.class
+utils/InputTransform.class
+utils/InputValidation.class
+models/Tarefa.class
+utils/Inputs.class
