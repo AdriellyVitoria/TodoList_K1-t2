@@ -18,11 +18,9 @@ public class ListagemView {
 
     public void porCategoria(){
         Integer opcao = inputs.categoria();
-        String opcaoEmString = inputTransform.categoriToString(opcao);
-        for (Tarefa tarefa : service.buscarTarefas()) {
-            if (tarefa.getCategoria().equals(opcaoEmString)) {
-                System.out.println(tarefa);
-            }
+        String filtroCategoria = inputTransform.categoriToString(opcao);
+        for (Tarefa tarefa : service.buscarTarefas(null, filtroCategoria)) {
+            System.out.println(tarefa);
         }
     }
 
@@ -34,15 +32,11 @@ public class ListagemView {
 
     public void porStatus(){
         Integer opcao = inputs.opcoesDeStatus();
-        String opcaoEmString = inputTransform.statusToString(opcao);
-        Integer NumeroDeAtividade = 0;
-        for (Tarefa tarefa : service.buscarTarefas()) {
-            if (tarefa.getStatus().equals(opcaoEmString)) {
-                NumeroDeAtividade++;
-                System.out.println(tarefa);
-            }
+        String filtroStatus = inputTransform.statusToString(opcao);
+        for (Tarefa tarefa : service.buscarTarefas(filtroStatus, null)) {
+            System.out.println(tarefa);
         }
-        System.out.println(opcaoEmString + ": " + NumeroDeAtividade + " Atividade(s)");
+        imprimirNumeroDeAtividades(filtroStatus);
     }
 
     public void porNumeroDeAtividade(){
@@ -51,13 +45,8 @@ public class ListagemView {
         imprimirNumeroDeAtividades("Concluido");
     }
 
-    private void imprimirNumeroDeAtividades(String filtro){
-        int NumeroDeAtividade = 0;
-        for (Tarefa tarefa : service.buscarTarefas()) {
-            if (tarefa.getStatus().equals(filtro)) {
-                NumeroDeAtividade++;
-            }
-        }
-        System.out.println(filtro+ ": " + NumeroDeAtividade + " Atividade(s)");
+    private void imprimirNumeroDeAtividades(String filtroStatus){
+        int NumeroDeAtividade = service.buscarTarefas(filtroStatus, null).size();
+        System.out.println(filtroStatus + ": " + NumeroDeAtividade + " Atividade(s)");
     }
 }
