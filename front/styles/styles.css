@@ -1,7 +1,76 @@
 @charset "UTF-8";
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --cor-reseda-verde: #6c7454;
+    --cor-musgo-verde-item: #90ffbd;
+    --cor-olivia-colunas: #6feba5;
+    --cor-cha-verde-para-fundo: #2dc376;
+    --cor-musgo-verde-botao: #4ed78e;
+}
+
+body {
+    background-color: #f1f1f1
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 120px 0;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+.botao__criar {
+    padding: 12px;
+    font-size: 24px;
+}
+
+main {
+    text-align: center;
+    padding: 0 30px ;   
+}
+
+table {
+    margin: 24px auto;
+}
+
+table, th, td {
+    border: 1px solid;
+    padding: 20px;
+    background-color: #e1e1e1;
+}
+
+table {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+th {
+    font-size: 28px;
+}
+
+td {
+    font-size: 20px;
+}
+
+.botao__editar__tarefa, .botao__excluir__tarefa {
+    cursor: pointer;
+    width: 28px;
+}
+
+.botao__editar__tarefa {
+    margin-right: 8px;
+}
+
+.prioridade__1 {
+    background-color: blue;
+}
+
+.prioridade__2 {
+    background-color: yellow;
+}
+
+.prioridade__3 {
+    background-color: red;
 }

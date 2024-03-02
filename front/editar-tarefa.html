@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/criar-tarefa.css">
+    <title>Editar Tarefa</title>
+</head>
+<body>
+    <header>
+        <a href="index.html"><button class="botao__voltar">Voltar</button></a>
+    </header>
+    <main class="container">
+        <h2>Editar Tarefa</h2>
+
+        <form class="formulario__editar__tarefa">
+            <div class="form__linha">
+                <div class="form__input">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" class="form__input__value">
+                </div>
+                <div class="form__input">
+                    <label for="descricao">Descrição</label>
+                    <input type="text" id="descricao" class="form__input__value">
+                </div>
+            </div>
+    
+            <div class="form__linha">
+                <div class="form__input">
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria" class="form__input__value">
+                        <option value="casa">Casa</option>
+                        <option value="estudos">Estudos</option>
+                        <option value="trabalho">Trabalho</option>
+                    </select>
+                </div>
+                <div class="form__input">
+                    <label for="prioridade">Prioridade</label>
+                    <select id="prioridade" class="form__input__value">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
+    
+            <div class="form__linha">
+                <div class="form__input">
+                    <label for="status">Status</label>               
+                    <select id="status" class="form__input__value">
+                        <option value="a fazer">A fazer</option>
+                        <option value="em andamento">Em andamento</option>
+                        <option value="concluido">Concluido</option>
+                    </select>
+                </div>
+                <div class="form__input">
+                    <label for="data">Data de término</label>
+                    <input type="date" id="data" class="form__input__value">              
+                </div>
+            </div>
+            <button class="botao__salvar__edicao">Editar Tarefa</button>    
+        </form>
+       
+    </main>
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>

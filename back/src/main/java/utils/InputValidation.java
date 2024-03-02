@@ -33,6 +33,5 @@ public class InputValidation {
                 System.out.println("Por favor digite um ID válido!!\n");
             }
         }
-
     }
 }
