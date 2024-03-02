@@ -46,7 +46,7 @@ export class ListaController {
     }
 
     listaVazia() {
-        return `<p>A lista está vázia</p>`
+        return `<p class="lista__vazia">A lista está vazia</p>`
     }
 
     criarTarefa(tarefa) {

@@ -107,3 +107,8 @@ td {
     border-color: #000;
     opacity: 0.5;
 }
+
+.lista__vazia {
+    font-size: 36px;
+    margin-top: 200px;
+}
