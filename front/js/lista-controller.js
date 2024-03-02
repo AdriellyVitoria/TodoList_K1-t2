@@ -12,12 +12,12 @@ export class ListaController {
 
         this.listaTarefas.map(tarefa => {
             tabela += `<tr>
-                <td>${tarefa.nome}</td>
-                <td>${tarefa.descricao}</td>
-                <td>${tarefa.categoria}</td>
-                <td class="prioridade__${tarefa.prioridade}">${tarefa.prioridade}</td>
-                <td>${tarefa.status}</td>
-                <td>${tarefa.dataTermino}</td>
+                <td class="${tarefa.status === 'concluido' ? 'concluido' : ''}">${tarefa.nome}</td>
+                <td class="${tarefa.status === 'concluido' ? 'concluido' : ''}">${tarefa.descricao}</td>
+                <td class="${tarefa.status === 'concluido' ? 'concluido' : ''}">${tarefa.categoria}</td>
+                <td class="${tarefa.status === 'concluido' ? 'concluido' : ''} prioridade__${tarefa.prioridade}">${tarefa.prioridade}</td>
+                <td class="${tarefa.status === 'concluido' ? 'concluido' : ''}">${tarefa.status}</td>
+                <td class="${tarefa.status === 'concluido' ? 'concluido' : ''}">${tarefa.dataTermino}</td>
                 <td class="opcoes" id="${tarefa.id}">
                     <img src="img/ferramenta-lapis.png" alt="Editar" class="botao__editar__tarefa">
                     <img src="img/lixeira-de-reciclagem.png" alt="Editar" class="botao__excluir__tarefa">
@@ -56,6 +56,13 @@ export class ListaController {
                 return -1
             if (a.prioridade > b.prioridade)
                 return 1
+            return 0
+        })
+        this.listaTarefas.sort((a, b) => {
+            if (a.status === 'concluido' && b.status !== 'concluido')
+                return 1
+            if (a.status !== 'concluido' && b.status === 'concluido')
+                return -1
             return 0
         })
         this.salvarMudancas()
